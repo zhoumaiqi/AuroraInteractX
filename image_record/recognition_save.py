@@ -53,7 +53,7 @@ def capture_image():
     print("图像捕获成功")
 
     # ==== 新增保存代码 ====
-    save_path = "/home/sunrise/image/debug.jpg"
+    save_path = "/home/sunrise/image/image_save.jpg"
     cv2.imwrite(save_path, frame)
     print(f"调试图像已保存至: {save_path}")
     # =====================
