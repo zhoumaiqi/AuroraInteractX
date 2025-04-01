@@ -49,14 +49,17 @@ WantedBy=multi-user.target
 
 ## 场景识别
 
-### 安装guvcview工具来调整摄像头
+### 方法一（main分支）
+**科大讯飞场景识别API**
+
+#### 安装guvcview工具来调整摄像头
 ```sudo apt-get install guvcview```
 
 ```guvcview -d /dev/video8```
 
 ```ls /dev/video*```
 
-### 安装依赖
+#### 安装依赖
 ```python3.11 -m pip install opencv-python```
 
 ```python3.11 -m pip install openpyxl```
@@ -64,3 +67,35 @@ WantedBy=multi-user.target
 ```python3.11 -m pip install pandas```
 
 ![识别日志](场景识别展示.jpg) 
+
+### 方法二（florence_yolo分支）
+**这一方法为利用florence2与yolo11结合，利用pytorch进行深度学习与自然语言处理**
+
+#### 安装nvidia驱动
+查看可用的nvidia驱动
+
+```sudo ubuntu-drivers devices```
+
+安装带有recommended驱动的版本
+
+```sudo apt install nvidia-driver-550```
+
+#### 安装支持的cuda版本
+[cuda安装链接](https://developer.nvidia.com/cuda-12-4-1-download-archive?target_os=Linux&target_arch=x86_64&Distribution=Ubuntu&target_version=22.04&target_type=deb_local)
+
+#### 安装pytorch
+[pytorch安装链接](https://pytorch.org/)
+
+#### 安装依赖库
+```pip install ultralytics```
+
+![识别日志](florence2_yolo视觉处理.jpg)
+
+#### 备注
+这里为了满足GPU需求，个人选择在云端google colab上跑，因此需要处理的图片需要提前保存在云端硬盘上
+
+[google colab](https://colab.research.google.com/)
+
+![云端硬盘](云端硬盘.jpg)
+
+
